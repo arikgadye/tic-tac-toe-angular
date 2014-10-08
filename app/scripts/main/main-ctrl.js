@@ -5,27 +5,15 @@ angular.module('ticTacToe')
   var player1 = {
     name: "player1",
     color: '#2ecc71',
-    solved: [],
     winner: false
   };
   var player2 = {
     name: "player2",  
     color: 'red',
-    solved: [],
     winner: false
   }; 
 
-  $scope.checkBoard = function() {
-    console.log(player1.solved)
-    // for (var i in $scope.winningSolutions) {
-    //     if ($scope.board[$scope.winningSolutions[i][0]] == $scope.board[$scope.winningSolutions[i][1]] == $scope.board[$scope.winningSolutions[i][2]]){
-    //       alert('yay');
-    //     };
-    //     // console.log($scope.board[$scope.winningSolutions[i][0]])
-    //     // console.log($scope.board[$scope.winningSolutions[i][1]])
-    //     // console.log($scope.board[$scope.winningSolutions[i][2]])
-    //   }
-    };
+  $scope.board = [null,null,null,null,null,null,null,null,null,]
   $scope.winningSolutions = [
     [0,1,2],
     [3,4,5],
@@ -36,8 +24,19 @@ angular.module('ticTacToe')
     [0,4,8],
     [6,4,2]
   ]
+  $scope.checkBoard = function() {
+    angular.forEach($scope.$parent.winningSolutions, function(combo){
+      var board = $scope.$parent.board;
+      if (board[combo[0]] != null && board[combo[1]] != null && board[combo[2]] != null) {
+          if (board[combo[0]].name == board[combo[1]].name && board[combo[2]].name == board[combo[1]].name) {
+            board[combo][0].winner = true;
+          }
+      }
+    });
+  };
   $scope.currentPlayer = player1;
-
+  $scope.player1 = player1
+  $scope.player2 = player2
   $scope.changePlayers = function(){ 
    if ($scope.$parent.currentPlayer.name == 'player1'){
     $scope.$apply(function(){

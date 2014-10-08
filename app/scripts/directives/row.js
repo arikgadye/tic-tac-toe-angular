@@ -14,12 +14,12 @@ app.directive('row', function(){
 				$(e.target).removeClass(scope.$parent.currentPlayer.name)
 			});
 			circle.on('click', function(e) {
-				$(e.target).addClass(scope.$parent.currentPlayer.color);
+				$(e.target).css('background-color', scope.$parent.currentPlayer.color);
 				$(e.target).unbind('mouseenter').unbind('mouseleave')
 				$(e.target).unbind('click');
 				$(e.target).addClass('disabled')
 				var cell = parseInt(e.target.id);
-				scope.$parent.currentPlayer.solved.push(cell);
+				scope.$parent.board[cell] = scope.$parent.currentPlayer;
 				scope.checkBoard();
 				scope.changePlayers();
 			});
