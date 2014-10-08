@@ -19,8 +19,8 @@ app.directive('row', function(){
 				$(e.target).unbind('click');
 				$(e.target).addClass('disabled')
 				var cell = parseInt(e.target.id);
-				scope.$parent.board[cell] = scope.$parent.currentPlayer;
-				scope.checkBoard();
+				scope.fillInBoard(cell, scope.$parent.currentPlayer);
+				// scope.$parent.board[cell] = scope.$parent.currentPlayer;
 				scope.changePlayers();
 			});
 		}

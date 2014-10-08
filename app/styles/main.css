@@ -2,6 +2,7 @@ table {
 	width: 500px;
 	margin: auto;
 	margin-top: 5em;
+	margin-bottom: -10em;
 }
 td {
 	width: 200px;
@@ -22,13 +23,15 @@ td {
 	background-color: #2ecc71;
 }
 .player1 {
-	border: 6px solid #2ecc71;
+	background-color: #2ecc71;
+	border: 6px solid #2ecc71 !important;
 }
 .player2 {
-	border: 6px solid red;
+	background-color: red;
+	border: 6px solid red !important;
 }
-.circle-sm {
-	border: 6px solid black;
+#player2, #player1{
+	border: 2px solid black;
 	width: 50px;
 	height: 50px;
 	border-radius: 200px;

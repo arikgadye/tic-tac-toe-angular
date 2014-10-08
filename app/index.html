@@ -27,21 +27,25 @@
   <div class="container" ng-controller="MainCtrl">
     <div class="row">
       <div class="col-md-12">
+        {{currentPlayer}}
         <center>
+          <h1>Tic Tac Toe</h1>
+          <br>
+          <br>
         <table>
           <row ctrl="MainCtrl"></row>
         </table>
         </center>
       </div>
     </div>
-    {{board}}
     <div class="row">
       <div class="col-md-2 game">
+          <p>Who goes first?</p>
         <div class="col-md-6">
-          <span>Player 1<div class="circle-sm" ng-class="{player1:selected}"></div></span>
+          <span>Player 1<div ng-click="startGame('player1')" id='player1' ng-class="{'player1':currentPlayer.name == 'player1'}"></div></span>
         </div>
         <div class="col-md-6">
-          <span>Player 2<div class="circle-sm player2" ng-class="{player2:selected}"></div></span>
+          <span>Player 2<div ng-click="startGame('player2')" id='player2' ng-class="{'player2':currentPlayer.name == 'player2'}"></div></span>
         </div>
       </div>
     </div>
@@ -62,6 +66,7 @@
   <!-- bower:js -->
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js'></script>
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -70,6 +75,7 @@
   <script src="scripts/main/main-ctrl.js"></script>
   <script src="scripts/directives/board.js"></script>
   <script src="scripts/directives/row.js"></script>
+  <script src="scripts/services/game.js"></script>
 
   <!-- inject:partials -->
   <!-- angular templates will be automaticaly converted in js and inserted here -->
