@@ -1,6 +1,6 @@
 <div id='overlay'></div>
 <div id="modal">
 	<div id='content' class={{winner.name}}>{{winner.name}} wins!</div>
-	<button class='btn btn-success' id='playagain'>Play again</button>
-	<button class='btn btn-danger' id='playagain'>exit</button>
+	<button ng-click='playAgain()' class='btn btn-success'>Play again</button>
+	<button ng-click="exit()"class='btn btn-danger'>exit</button>
 </div>

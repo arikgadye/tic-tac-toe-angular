@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ticTacToe')
-.controller('MainCtrl', function ($scope, $rootScope, GameFactory) {
+.controller('MainCtrl', function ($scope, $rootScope, $location, GameFactory) {
   var player1 = {
     name: "player1",
     color: '#2ecc71',
@@ -14,6 +14,14 @@ angular.module('ticTacToe')
   }; 
 
   $rootScope.done = false;
+  $scope.exit = function() {
+    $rootScope.done=false;
+    GameFactory.freezeBoard();
+  }
+  $scope.playAgain = function() {
+    GameFactory.clearBoard();
+    $rootScope.done = false;
+  }
   $rootScope.winner = undefined;
   $scope.currentPlayer = player1;
 

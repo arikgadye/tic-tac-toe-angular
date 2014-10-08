@@ -14,7 +14,7 @@ app.directive('row', function(){
 				$(e.target).removeClass(scope.$parent.currentPlayer.name)
 			});
 			circle.on('click', function(e) {
-				$(e.target).css('background-color', scope.$parent.currentPlayer.color);
+				$(e.target).addClass(scope.$parent.currentPlayer);
 				$(e.target).unbind('mouseenter').unbind('mouseleave')
 				$(e.target).unbind('click');
 				$(e.target).addClass('disabled')
