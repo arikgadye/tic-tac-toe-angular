@@ -30,8 +30,6 @@
         <center>
         <table>
           <row ctrl="MainCtrl"></row>
-          <row ctrl="MainCtrl"></row>
-          <row ctrl="MainCtrl"></row>
         </table>
         </center>
           {{currentPlayer}}
@@ -40,10 +38,10 @@
     <div class="row">
       <div class="col-md-2 game">
         <div class="col-md-6">
-          <span>Player 1<div class="circle-sm"></div></span>
+          <span>Player 1<div class="circle-sm" ng-class="{player1:selected}"></div></span>
         </div>
         <div class="col-md-6">
-          <span>Player 2<div class="circle-sm"></div></span>
+          <span>Player 2<div class="circle-sm player2" ng-class="{player2:selected}"></div></span>
         </div>
       </div>
     </div>
