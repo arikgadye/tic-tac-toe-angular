@@ -10,13 +10,19 @@ angular.module('ticTacToe')
     name: "player2",  
     color: 'red'
   } 
-  $scope.currentPlayer = player2;
-  
+
+  $scope.currentPlayer = player1;
+
   $scope.changePlayers = function(){ 
-    if ($scope.currentPlayer == player1){
-      $scope.currentPlayer = player2;
-    } else {
-      $scope.currentPlayer = player1;
-    };
-  }
+    
+   if ($scope.$parent.currentPlayer.name == 'player1'){
+    $scope.$apply(function(){
+      $scope.$parent.currentPlayer = player2;
+    })
+  } else {
+    $scope.$apply(function(){
+      $scope.$parent.currentPlayer = player1;
+    })
+  };
+}
 });
