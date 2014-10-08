@@ -1,4 +1,4 @@
-app.factory('GameFactory', function(){
+app.factory('GameFactory', function($rootScope){
 	var game = {};
 
 	game.board = [null,null,null,null,null,null,null,null,null];
@@ -17,7 +17,8 @@ app.factory('GameFactory', function(){
       if (this.board[combo[0]] != null && this.board[combo[1]] != null && this.board[combo[2]] != null) {
           if (this.board[combo[0]].name == this.board[combo[1]].name && this.board[combo[2]].name == this.board[combo[1]].name) {
             this.board[combo[0]].winner = true;
-            alert('yay')
+            $rootScope.done = true;
+            $rootScope.winner = this.board[combo[0]];
           }
       }
     }.bind(this));

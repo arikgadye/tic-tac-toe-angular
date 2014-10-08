@@ -27,7 +27,6 @@
   <div class="container" ng-controller="MainCtrl">
     <div class="row">
       <div class="col-md-12">
-        {{currentPlayer}}
         <center>
           <h1>Tic Tac Toe</h1>
           <br>
@@ -49,6 +48,7 @@
         </div>
       </div>
     </div>
+    <modal ng-show="done"></modal>
   </div>
 
 
@@ -73,8 +73,8 @@
   <!-- build:js({app,.tmp}) scripts/main.js -->
   <script src="scripts/ticTacToe.js"></script>
   <script src="scripts/main/main-ctrl.js"></script>
-  <script src="scripts/directives/board.js"></script>
   <script src="scripts/directives/row.js"></script>
+  <script src="scripts/directives/modal.js"></script>
   <script src="scripts/services/game.js"></script>
 
   <!-- inject:partials -->
